@@ -23,7 +23,8 @@
 		"CSSLint",
 		"JSHint",
 		"JSLint",
-		"Markdown"
+		"Markdown",
+		"TortoiseGit Context Integration"
 	],
 	"indent_guide_options":
 	[
