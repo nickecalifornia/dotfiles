@@ -1,0 +1,56 @@
+#!/bin/bash
+echo -e "\n--------------------\n Kernels do Sistema\n--------------------\n"
+OPT=$1   # option
+SCRIPT_NAME=$(basename -- "$0")
+CURRENT_KERNEL="[Kernel Atual]: $(uname -r) \n"
+
+function usage_help() {
+    echo -e "[Ajuda]\n"
+    echo -e "- Listar Kernels Instaladas:    $SCRIPT_NAME -i | -installed | --installed"
+    echo -e "- Listar Kernels Desinstaladas: $SCRIPT_NAME -u | -uninstalled | --uninstalled"
+    echo -e "- Listar Todas as Kernels:      $SCRIPT_NAME -a | -all | --all \n"
+    echo -e "(Obs.: Digite apenas $SCRIPT_NAME para listar todas as Kernels Instaladas) \n"
+}
+
+function installed_kernels() {
+    echo -e "[Instaladas]\n"
+    echo -e $CURRENT_KERNEL
+    #dpkg --get-selections | grep linux-image
+    dpkg --get-selections | grep 'linux-image' | grep -v 'deinstall'
+    echo -e '\n'
+}
+
+function uninstalled_kernels() {
+    echo -e "[Desinstaladas]\n"
+    echo -e $CURRENT_KERNEL
+    #dpkg --get-selections | grep linux-image
+    dpkg --get-selections | grep 'linux-image' | grep 'deinstall'
+    echo -e '\n'
+}
+
+function all_kernels() {
+    echo -e "[Todas]\n"
+    echo -e $CURRENT_KERNEL
+    #dpkg --get-selections | grep linux-image
+    dpkg --get-selections | grep 'linux-image'
+    echo -e '\n'
+}
+
+# test -e and -E command line args matching
+case $OPT in
+    -h|--help|-help)
+        usage_help
+        ;;
+    -i|--installed|-installed)
+        installed_kernels
+        ;;
+    -a|--all|-all)
+        all_kernels
+        ;;
+    -u|--uninstalled|-uninstalled)
+        uninstalled_kernels
+        ;;
+   *)
+    installed_kernels
+    ;;
+esac

@@ -1,0 +1,59 @@
+{
+	"bootstrapped": true,
+	"channels":
+	[
+		"https://packagecontrol.io/channel_v3.json",
+		"http://github.com/SublimeText/jQuery"
+	],
+	"in_process_packages":
+	[
+	],
+	"installed_packages":
+	[
+		"Alignment",
+		"All Autocomplete",
+		"Blade Snippets",
+		"Blade Spacer",
+		"BracketHighlighter",
+		"Color Highlighter",
+		"ColorPicker",
+		"CSS Unminifier",
+		"CSScomb",
+		"CSSLint",
+		"CTags",
+		"DocBlockr",
+		"Emmet",
+		"Function Name Display",
+		"GitStatus",
+		"Golang Build",
+		"GoOracle",
+		"GoSublime",
+		"HTML-CSS-JS Prettify",
+		"JavaScript Completions",
+		"jQuery",
+		"JSHint",
+		"JSLint",
+		"Keymaps",
+		"Laravel 5 Artisan",
+		"Laravel 5 Snippets",
+		"Laravel Blade Highlighter",
+		"MarkdownEditing",
+		"Material Theme",
+		"Material Theme - White Panels",
+		"Materialized CSS Snippets",
+		"MultiEditUtils",
+		"Package Control",
+		"PHP Companion",
+		"PhpDoc",
+		"SideBarEnhancements",
+		"SublimeCodeIntel",
+		"SublimeLinter",
+		"SublimeLinter-php",
+		"SublimeLinter-phpcs",
+		"TortoiseGit Context Integration"
+	],
+	"repositories":
+	[
+		"https://github.com/jonnypolite/cssunminifier"
+	]
+}
