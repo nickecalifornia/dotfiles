@@ -13,4 +13,14 @@
     { "keys": ["ctrl+alt+["], "command": "tgit_commit_repo" },
     { "keys": ["ctrl+alt+]"], "command": "tgit_commit" },
     { "keys": ["ctrl+shift+o"], "command": "prompt_open_folder" },
+    // default use of selection_fields
+    { "keys": ["alt+d"], "command": "selection_fields" },
+    // add the current selections as a fields
+    { "keys": ["alt+a"], "command": "selection_fields", "args": {"mode": "add"} },
+    // jump and remove current selection in selection_fields
+    { "keys": ["ctrl+alt+d"], "command": "selection_fields",
+      "args": {"mode": "smart", "only_other": true} },
+    // cancel selection_fields and remove current selection
+    { "keys": ["ctrl+alt+shift+d"], "command": "selection_fields",
+      "args": {"mode": "toggle", "only_other": true} },
 ]

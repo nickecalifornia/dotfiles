@@ -109,3 +109,11 @@ export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 export VDPAU_DRIVER=va_gl
 export LIBVA_DRIVER_NAME=i965
 export PATH=~/.npm-global/bin:$PATH
+
+if [ "$COLORTERM" = "gnome-terminal" ] || [ "$COLORTERM" = "xfce4-terminal" ]
+then
+    export TERM=xterm-256color
+elif [ "$COLORTERM" = "rxvt-xpm" ]
+then
+    export TERM=rxvt-256color
+fi

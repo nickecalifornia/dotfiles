@@ -16,7 +16,7 @@
 		"gray_antialias",
 		"subpixel_antialias"
 	],
-	"font_size": 9,
+	"font_size": 10,
 	"highlight_line": false,
 	"ignored_packages":
 	[

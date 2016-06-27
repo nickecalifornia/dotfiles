@@ -1,0 +1,42 @@
+#!/usr/bin/env bash
+OPT=$1   # option
+text="$(xsel -o)"
+translate="$(wget -U "Mozilla/5.0" -qO - "http://translate.googleapis.com/translate_a/single?client=gtx&sl=auto&tl=pt-br&dt=t&q=$(echo $text | sed "s/[\"'<>]//g")" | sed "s/,,,0]],,.*//g" | awk -F'"' '{print $2, $6}')"
+count_char=${#text}
+char_limit=35
+icon='accessories-dictionary'
+
+echo "$translate" | xclip -selection clipboard
+
+function notification_translation() {
+    notify-send --icon="$(echo $icon)" "$(echo $text)" "$(echo $translate)"
+}
+
+function window_translation() {
+    echo -e "Original: \n" "$text"'\n' > /tmp/notitrans
+    echo -e  "Tradução: \n" "$translate" >> /tmp/notitrans
+    zenity --text-info --title="Tradução" --filename=/tmp/notitrans
+}
+
+function auto_select()
+{
+    if [ $count_char -ge $char_limit ];
+    then
+        window_translation
+    else
+        notification_translation
+    fi
+}
+
+# Translation option
+case $OPT in
+    -n)
+        notification_translation
+        ;;
+    -w)
+        window_translation
+        ;;
+   *)
+    auto_select
+    ;;
+esac
